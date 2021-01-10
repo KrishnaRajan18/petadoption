@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="display-3 text-center">Pets for adoption</h1>
+<div class="container text-center">
+    
+  {% for pet in pets %}
+  <div class="card" style="width: 25rem; text-align:center;">
+    <img src='{{pet.photo_url}}' class="card-img-top">
+    <div class="card-body">
+      <div class="card-title">
+      <a href="/edit/{{pet.id}}" >Pet name: {{pet.name}}</a>
+      </div>
+      <div class="card-subtitle mb-2 text-muted">
+  <li>Species:{{pet.species}}</li>
+  <li>Age:{{pet.age}}</li>
+  <li>Notes:{{pet.notes}}</li>
+  <li>Available:{{pet.available}}</li>
+      </div>
+ 
+    </div>
+  </div>
+  {% endfor %}
+  <a class = "btn btn-info" href="/add">Add a new pet</a>
+</div>
+
+{% endblock%}
